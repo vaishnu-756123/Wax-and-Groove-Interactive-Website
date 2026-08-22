@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wax &amp; Groove — Independent Record Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#top" class="logo">WAX<span>&amp;</span>GROOVE</a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navList">
+        <span></span><span></span><span></span>
+        <span class="sr-only">Menu</span>
+      </button>
+      <ul class="nav-list" id="navList">
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#visit">Visit</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle light and dark theme" title="Toggle theme">
+        <svg class="icon icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
+        <svg class="icon icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z" fill="currentColor"/></svg>
+      </button>
+
+      <button class="icon-btn" id="wishlistBtn" aria-label="View wishlist">
+        <svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c1.9 0 3.4 1 4.2 2.5C10.8 6 12.3 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        <span class="badge" id="wishlistCount">0</span>
+      </button>
+
+      <button class="icon-btn" id="cartBtn" aria-label="Open cart" aria-haspopup="true" aria-expanded="false">
+        <svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.6h7.2a2 2 0 0 0 2-1.6L20 8H6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="21" r="1.4" fill="currentColor"/><circle cx="17" cy="21" r="1.4" fill="currentColor"/></svg>
+        <span class="badge" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="wrap hero-inner">
+      <p class="eyebrow">New &amp; used vinyl &middot; est. 2016</p>
+      <h1>Dig in. <span class="accent-text">Drop the needle.</span></h1>
+      <p class="hero-lede">Six hundred new titles, four thousand used, and a listening bar where nobody minds if you play a whole side before deciding.</p>
+      <div class="hero-actions">
+        <a href="#shop" class="btn btn-primary">Browse the crates</a>
+        <a href="#visit" class="btn btn-text">Find the shop &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOP: genre filter + record grid -->
+  <section class="shop" id="shop">
+    <div class="wrap">
+      <div class="shop-heading">
+        <h2 class="section-title">This week's crates</h2>
+        <p class="section-sub">Filter by genre — the count updates as you go.</p>
+      </div>
+
+      <div class="filter-bar" role="group" aria-label="Filter records by genre">
+        <button class="filter-btn is-active" data-genre="all">All <span class="count">(8)</span></button>
+        <button class="filter-btn" data-genre="jazz">Jazz</button>
+        <button class="filter-btn" data-genre="soul">Soul</button>
+        <button class="filter-btn" data-genre="electronic">Electronic</button>
+        <button class="filter-btn" data-genre="rock">Rock</button>
+      </div>
+
+      <p class="results-count" id="resultsCount" aria-live="polite">Showing 8 of 8 records</p>
+
+      <div class="record-grid" id="recordGrid">
+
+        <article class="record-card" data-genre="jazz" data-id="1" data-title="Kind of Blue" data-artist="Miles Davis" data-price="1899">
+          <div class="record-media">
+            <div class="record-art" style="--art-a:#3C4A8C; --art-b:#1B2140;">KOB</div>
+            <button class="wishlist-heart" aria-label="Add Kind of Blue to wishlist" aria-pressed="false">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c1.9 0 3.4 1 4.2 2.5C10.8 6 12.3 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"/></svg>
+            </button>
+          </div>
+          <div class="record-body">
+            <p class="record-tag">Jazz &middot; Reissue</p>
+            <h3>Kind of Blue</h3>
+            <p class="record-artist">Miles Davis</p>
+            <div class="record-footer">
+              <span class="record-price">&#8377;1,899</span>
+              <button class="btn btn-small add-to-cart">Add to cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="record-card" data-genre="soul" data-id="2" data-title="What's Going On" data-artist="Marvin Gaye" data-price="1699">
+          <div class="record-media">
+            <div class="record-art" style="--art-a:#8C5A3C; --art-b:#40241B;">WGO</div>
+            <button class="wishlist-heart" aria-label="Add What's Going On to wishlist" aria-pressed="false">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c1.9 0 3.4 1 4.2 2.5C10.8 6 12.3 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"/></svg>
+            </button>
+          </div>
+          <div class="record-body">
+            <p class="record-tag">Soul &middot; Original press</p>
+            <h3>What's Going On</h3>
+            <p class="record-artist">Marvin Gaye</p>
+            <div class="record-footer">
+              <span class="record-price">&#8377;1,699</span>
+              <button class="btn btn-small add-to-cart">Add to cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="record-card" data-genre="electronic" data-id="3" data-title="Selected Ambient Works 85–92" data-artist="Aphex Twin" data-price="2199">
+          <div class="record-media">
+            <div class="record-art" style="--art-a:#3C8C7A; --art-b:#1B4038;">SAW</div>
+            <button class="wishlist-heart" aria-label="Add Selected Ambient Works to wishlist" aria-pressed="false">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c1.9 0 3.4 1 4.2 2.5C10.8 6 12.3 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"/></svg>
+            </button>
+          </div>
+          <div class="record-body">
+            <p class="record-tag">Electronic &middot; 2LP</p>
+            <h3>Selected Ambient Works 85&ndash;92</h3>
+            <p class="record-artist">Aphex Twin</p>
+            <div class="record-footer">
+              <span class="record-price">&#8377;2,199</span>
+              <button class="btn btn-small add-to-cart">Add to cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="record-card" data-genre="rock" data-id="4" data-title="Rumours" data-artist="Fleetwood Mac" data-price="1799">
+          <div class="record-media">
+            <div class="record-art" style="--art-a:#8C3C5A; --art-b:#401B2A;">RMR</div>
+            <button class="wishlist-heart" aria-label="Add Rumours to wishlist" aria-pressed="false">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c1.9 0 3.4 1 4.2 2.5C10.8 6 12.3 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"/></svg>
+            </button>
+          </div>
+          <div class="record-body">
+            <p class="record-tag">Rock &middot; 180g</p>
+            <h3>Rumours</h3>
+            <p class="record-artist">Fleetwood Mac</p>
+            <div class="record-footer">
+              <span class="record-price">&#8377;1,799</span>
+              <button class="btn btn-small add-to-cart">Add to cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="record-card" data-genre="jazz" data-id="5" data-title="A Love Supreme" data-artist="John Coltrane" data-price="1999">
+          <div class="record-media">
+            <div class="record-art" style="--art-a:#8C7A3C; --art-b:#40361B;">ALS</div>
+            <button class="wishlist-heart" aria-label="Add A Love Supreme to wishlist" aria-pressed="false">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c1.9 0 3.4 1 4.2 2.5C10.8 6 12.3 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"/></svg>
+            </button>
+          </div>
+          <div class="record-body">
+            <p class="record-tag">Jazz &middot; Original press</p>
+            <h3>A Love Supreme</h3>
+            <p class="record-artist">John Coltrane</p>
+            <div class="record-footer">
+              <span class="record-price">&#8377;1,999</span>
+              <button class="btn btn-small add-to-cart">Add to cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="record-card" data-genre="electronic" data-id="6" data-title="Discovery" data-artist="Daft Punk" data-price="2099">
+          <div class="record-media">
+            <div class="record-art" style="--art-a:#5A3C8C; --art-b:#2A1B40;">DSC</div>
+            <button class="wishlist-heart" aria-label="Add Discovery to wishlist" aria-pressed="false">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c1.9 0 3.4 1 4.2 2.5C10.8 6 12.3 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"/></svg>
+            </button>
+          </div>
+          <div class="record-body">
+            <p class="record-tag">Electronic &middot; Reissue</p>
+            <h3>Discovery</h3>
+            <p class="record-artist">Daft Punk</p>
+            <div class="record-footer">
+              <span class="record-price">&#8377;2,099</span>
+              <button class="btn btn-small add-to-cart">Add to cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="record-card" data-genre="soul" data-id="7" data-title="Songs in the Key of Life" data-artist="Stevie Wonder" data-price="2299">
+          <div class="record-media">
+            <div class="record-art" style="--art-a:#3C6A8C; --art-b:#1B3040;">SKL</div>
+            <button class="wishlist-heart" aria-label="Add Songs in the Key of Life to wishlist" aria-pressed="false">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c1.9 0 3.4 1 4.2 2.5C10.8 6 12.3 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"/></svg>
+            </button>
+          </div>
+          <div class="record-body">
+            <p class="record-tag">Soul &middot; 2LP</p>
+            <h3>Songs in the Key of Life</h3>
+            <p class="record-artist">Stevie Wonder</p>
+            <div class="record-footer">
+              <span class="record-price">&#8377;2,299</span>
+              <button class="btn btn-small add-to-cart">Add to cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="record-card" data-genre="rock" data-id="8" data-title="OK Computer" data-artist="Radiohead" data-price="1899">
+          <div class="record-media">
+            <div class="record-art" style="--art-a:#4A4A52; --art-b:#1D1D22;">OKC</div>
+            <button class="wishlist-heart" aria-label="Add OK Computer to wishlist" aria-pressed="false">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c1.9 0 3.4 1 4.2 2.5C10.8 6 12.3 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"/></svg>
+            </button>
+          </div>
+          <div class="record-body">
+            <p class="record-tag">Rock &middot; 180g</p>
+            <h3>OK Computer</h3>
+            <p class="record-artist">Radiohead</p>
+            <div class="record-footer">
+              <span class="record-price">&#8377;1,899</span>
+              <button class="btn btn-small add-to-cart">Add to cart</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="empty-state" id="emptyState" hidden>No records in this genre right now — check back next crate rotation.</p>
+    </div>
+  </section>
+
+  <!-- FAQ ACCORDION -->
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <h2 class="section-title">Questions we get a lot</h2>
+
+      <div class="accordion" id="accordion">
+        <div class="accordion-item">
+          <h3>
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-panel-1" id="faq-btn-1">
+              Do you grade your used vinyl?
+              <svg class="chevron" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            </button>
+          </h3>
+          <div class="accordion-panel" id="faq-panel-1" role="region" aria-labelledby="faq-btn-1" hidden>
+            <p>Every used record is played and graded on the Goldmine scale before it goes on the shelf — condition is written on the sticker, not just guessed at the counter.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3>
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-panel-2" id="faq-btn-2">
+              Can I listen before I buy?
+              <svg class="chevron" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            </button>
+          </h3>
+          <div class="accordion-panel" id="faq-panel-2" role="region" aria-labelledby="faq-btn-2" hidden>
+            <p>Yes — the listening bar at the back has two turntables and headphones. Grab any in-stock copy and drop the needle before you decide.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3>
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-panel-3" id="faq-btn-3">
+              Do you buy or trade collections?
+              <svg class="chevron" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            </button>
+          </h3>
+          <div class="accordion-panel" id="faq-panel-3" role="region" aria-labelledby="faq-btn-3" hidden>
+            <p>Bring in up to 50 records for a same-day cash or store-credit offer. Larger collections need an appointment — email us photos of the shelf first.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3>
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-panel-4" id="faq-btn-4">
+              Do you ship outside the city?
+              <svg class="chevron" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            </button>
+          </h3>
+          <div class="accordion-panel" id="faq-panel-4" role="region" aria-labelledby="faq-btn-4" hidden>
+            <p>We ship pan-India in reinforced mailers with corner protectors. New stock ships within 2 business days; used stock is packed to order.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL CAROUSEL -->
+  <section class="reviews" id="reviews">
+    <div class="wrap">
+      <h2 class="section-title">From the regulars</h2>
+
+      <div class="carousel" id="carousel" aria-roledescription="carousel" aria-label="Customer reviews">
+        <div class="carousel-track" id="carouselTrack">
+          <blockquote class="carousel-slide" aria-hidden="false">
+            <p>"I came in for one specific pressing and left forty minutes later having listened to four records I'd never heard of. That's the whole point of a real record shop."</p>
+            <cite>— Divya R.</cite>
+          </blockquote>
+          <blockquote class="carousel-slide" aria-hidden="true">
+            <p>"They graded a copy as VG+ that I would've called Mint, and told me so before I bought it. That kind of honesty is rare."</p>
+            <cite>— Sanjay M.</cite>
+          </blockquote>
+          <blockquote class="carousel-slide" aria-hidden="true">
+            <p>"Sold them a stack of records I inherited. Fair offer, no haggling games, cash in ten minutes."</p>
+            <cite>— Priyanka T.</cite>
+          </blockquote>
+        </div>
+
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="prevSlide" aria-label="Previous review">&larr;</button>
+          <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Choose review"></div>
+          <button class="carousel-btn" id="nextSlide" aria-label="Next review">&rarr;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT / NEWSLETTER -->
+  <section class="visit" id="visit">
+    <div class="wrap visit-inner">
+      <div class="visit-info">
+        <h2 class="section-title">Visit the shop</h2>
+        <p>Tue&ndash;Sun, 11:00&ndash;20:00. 8 Residency Road, Guntur.</p>
+      </div>
+
+      <form class="newsletter-form" id="newsletterForm" novalidate>
+        <h3>New arrivals, once a week</h3>
+        <p class="form-hint">No spam — just what came in on Tuesday's delivery.</p>
+        <div class="form-row">
+          <label for="emailInput" class="sr-only">Email address</label>
+          <input type="email" id="emailInput" name="email" placeholder="you@example.com" autocomplete="email" required>
+          <button type="submit" class="btn btn-primary">Sign up</button>
+        </div>
+        <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>&copy; 2026 Wax &amp; Groove Records.</p>
+    <ul class="footer-links">
+      <li><a href="#top">Back to top</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+  <div class="cart-header">
+    <h2>Your cart</h2>
+    <button class="icon-btn" id="cartClose" aria-label="Close cart">&times;</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <p class="cart-empty" id="cartEmptyMsg">Your cart is empty. Add a record to get started.</p>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total-row">
+      <span>Total</span>
+      <span id="cartTotal">&#8377;0</span>
+    </div>
+    <button class="btn btn-primary cart-checkout" id="checkoutBtn">Checkout</button>
+  </div>
+</aside>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top" hidden>&uarr;</button>
+
+<!-- TOAST -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
